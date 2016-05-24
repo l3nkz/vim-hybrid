@@ -1,73 +1,5 @@
-" File:       hybrid.vim
-" Maintainer: Andrew Wong (w0ng)
-" URL:        https://github.com/w0ng/vim-hybrid
-" Modified:   27 Jan 2013 07:33 AM AEST
-" License:    MIT
-
-" Description:"{{{
+" Set Up: {{{
 " ----------------------------------------------------------------------------
-" The default RGB colour palette is taken from Tomorrow-Night.vim:
-" https://github.com/chriskempson/vim-tomorrow-theme
-"
-" The reduced RGB colour palette is taken from Codecademy's online editor:
-" https://www.codecademy.com/learn
-"
-" The syntax highlighting scheme is taken from jellybeans.vim:
-" https://github.com/nanotech/jellybeans.vim
-"
-" The is code taken from solarized.vim:
-" https://github.com/altercation/vim-colors-solarized
-
-"}}}
-" Requirements And Recommendations:"{{{
-" ----------------------------------------------------------------------------
-" Requirements
-"   - gVim 7.3+ on Linux, Mac and Windows.
-"   - Vim 7.3+ on Linux and Mac, using a terminal that supports 256 colours.
-"
-" Due to the limited 256 palette, colours in Vim and gVim will still be slightly
-" different.
-"
-" In order to have Vim use the same colours as gVim (the way this colour scheme
-" is intended), it is recommended that you define the basic 16 colours in your
-" terminal.
-"
-" For Linux users (rxvt-unicode, xterm):
-"
-" 1.  Add the default palette to ~/.Xresources:
-"
-"         https://gist.github.com/3278077
-"
-"     or alternatively, add the reduced contrast palette to ~/.Xresources:
-"
-"         https://gist.github.com/w0ng/16e33902508b4a0350ae
-"
-" 2.  Add to ~/.vimrc:
-"
-"         let g:hybrid_custom_term_colors = 1
-"         let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
-"         colorscheme hybrid
-"
-" For OSX users (iTerm):
-"
-" 1.  Import the default colour preset into iTerm:
-"
-"         https://raw.githubusercontent.com/w0ng/dotfiles/master/iterm2/hybrid.itermcolors
-"
-"     or alternatively, import the reduced contrast color preset into iTerm:
-"
-"         https://raw.githubusercontent.com/w0ng/dotfiles/master/iterm2/hybrid-reduced-contrast.itermcolors
-"
-" 2.  Add to ~/.vimrc:
-"
-"         let g:hybrid_custom_term_colors = 1
-"         let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
-"         colorscheme hybrid
-
-"}}}
-" Initialisation:"{{{
-" ----------------------------------------------------------------------------
-
 hi clear
 
 if exists("syntax_on")
@@ -421,33 +353,7 @@ hi! link diffAdded Special
 let &background = s:style
 
 " }}}
-" Legal:"{{{
-" ----------------------------------------------------------------------------
-" Copyright (c) 2011 Ethan Schoonover
-" Copyright (c) 2009-2012 NanoTech
-" Copyright (c) 2012 w0ng
-"
-" Permission is hereby granted, free of charge, to any per‐
-" son obtaining a copy of this software and associated doc‐
-" umentation files (the “Software”), to deal in the Soft‐
-" ware without restriction, including without limitation
-" the rights to use, copy, modify, merge, publish, distrib‐
-" ute, sublicense, and/or sell copies of the Software, and
-" to permit persons to whom the Software is furnished to do
-" so, subject to the following conditions:
-"
-" The above copyright notice and this permission notice
-" shall be included in all copies or substantial portions
-" of the Software.
-"
-" THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY
-" KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
-" THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICU‐
-" LAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-" AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-" DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CON‐
-" TRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CON‐
-" NECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-" THE SOFTWARE.
 
+" Tear Down: {{{
+let &background = s:style
 " }}}
