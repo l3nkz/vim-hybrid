@@ -9,14 +9,24 @@ endif
 let s:style = &background
 
 let g:colors_name = "hybrid"
-
 "}}}
-" GUI And Cterm Palettes:"{{{
-" ----------------------------------------------------------------------------
 
+" Default Settings: {{{
+" ----------------------------------------------------------------------------
+if !exists("g:hybrid_use_reduced_contrast")
+    let g:hybrid_use_reduced_contrast = 0
+endif
+
+if !exists("g:hybrid_use_term_colors")
+    let g:hybrid_use_term_colors = 0
+endif
+" }}}
+
+" GUI And CTerm Palettes: {{{
+" ----------------------------------------------------------------------------
 let s:palette = {'gui' : {} , 'cterm' : {}}
 
-if exists("g:hybrid_reduced_contrast") && g:hybrid_reduced_contrast == 1
+if g:hybrid_use_reduced_contrast == 1
   let s:gui_background = "#232c31"
   let s:gui_selection  = "#425059"
   let s:gui_line       = "#2d3c46"
@@ -52,19 +62,19 @@ let s:palette.gui.darkcyan   = { 'dark' : "#005f5f"        , 'light' : "#005f00"
 let s:palette.gui.darkred    = { 'dark' : "#5f0000"        , 'light' : "#d7d7ff" }
 let s:palette.gui.darkpurple = { 'dark' : "#5f005f"        , 'light' : "#5f005f" }
 
-if exists("g:hybrid_custom_term_colors") && g:hybrid_custom_term_colors == 1
-  let s:cterm_foreground = "15"  " White
-  let s:cterm_selection  = "8"   " DarkGrey
-  let s:cterm_line       = "0"   " Black
-  let s:cterm_comment    = "7"   " LightGrey
-  let s:cterm_red        = "9"   " LightRed
-  let s:cterm_orange     = "3"   " DarkYellow
-  let s:cterm_yellow     = "11"  " LightYellow
-  let s:cterm_green      = "10"  " LightGreen
-  let s:cterm_aqua       = "14"  " LightCyan
-  let s:cterm_blue       = "12"  " LightBlue
-  let s:cterm_purple     = "13"  " LightMagenta
-  let s:cterm_delbg      = "9"   " LightRed
+if g:hybrid_use_term_colors == 1
+  let s:cterm_foreground = "15"
+  let s:cterm_selection  = "8"
+  let s:cterm_line       = "0"
+  let s:cterm_comment    = "7"
+  let s:cterm_red        = "9"
+  let s:cterm_orange     = "3"
+  let s:cterm_yellow     = "11"
+  let s:cterm_green      = "10"
+  let s:cterm_aqua       = "14"
+  let s:cterm_blue       = "12"
+  let s:cterm_purple     = "13"
+  let s:cterm_delbg      = "9"
 else
   let s:cterm_foreground = "250"
   let s:cterm_selection  = "237"
