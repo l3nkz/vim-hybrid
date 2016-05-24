@@ -113,9 +113,9 @@ let s:palette.cterm.darkblue   = { 'dark' : "17"               , 'light' : "194"
 let s:palette.cterm.darkcyan   = { 'dark' : "24"               , 'light' : "22"  }
 let s:palette.cterm.darkred    = { 'dark' : "52"               , 'light' : "189" }
 let s:palette.cterm.darkpurple = { 'dark' : "53"               , 'light' : "53"  }
-
 "}}}
-" Formatting Options:"{{{
+
+" Formatting Options: {{{
 " ----------------------------------------------------------------------------
 let s:none   = "NONE"
 let s:t_none = "NONE"
@@ -126,9 +126,9 @@ let s:s      = ",standout"
 let s:b      = ",bold"
 let s:u      = ",underline"
 let s:i      = ",italic"
-
 "}}}
-" Highlighting Primitives:"{{{
+
+" Highlighting Primitives: {{{
 " ----------------------------------------------------------------------------
 function! s:build_prim(hi_elem, field)
   " Given a:hi_elem = bg, a:field = comment
@@ -223,122 +223,115 @@ exe "let s:sp_darkred    = ' guisp=". s:palette.gui.darkred[s:style]    ."'"
 exe "let s:sp_darkpurple = ' guisp=". s:palette.gui.darkpurple[s:style] ."'"
 
 "}}}
-" Vim Highlighting: (see :help highlight-groups)"{{{
-" ----------------------------------------------------------------------------
-exe "hi! ColorColumn"   .s:fg_none        .s:bg_line        .s:fmt_none
-"   Conceal"
-"   Cursor"
-"   CursorIM"
-exe "hi! CursorColumn"  .s:fg_none        .s:bg_line        .s:fmt_none
-exe "hi! CursorLine"    .s:fg_none        .s:bg_line        .s:fmt_none
-exe "hi! Directory"     .s:fg_blue        .s:bg_none        .s:fmt_none
-exe "hi! DiffAdd"       .s:fg_addfg       .s:bg_addbg       .s:fmt_none
-exe "hi! DiffChange"    .s:fg_changefg    .s:bg_changebg    .s:fmt_none
-exe "hi! DiffDelete"    .s:fg_background  .s:bg_delbg       .s:fmt_none
-exe "hi! DiffText"      .s:fg_background  .s:bg_blue        .s:fmt_none
-exe "hi! ErrorMsg"      .s:fg_background  .s:bg_red         .s:fmt_stnd
-exe "hi! VertSplit"     .s:fg_window      .s:bg_none        .s:fmt_none
-exe "hi! Folded"        .s:fg_comment     .s:bg_darkcolumn  .s:fmt_none
-exe "hi! FoldColumn"    .s:fg_none        .s:bg_darkcolumn  .s:fmt_none
-exe "hi! SignColumn"    .s:fg_none        .s:bg_darkcolumn  .s:fmt_none
-"   Incsearch"
-exe "hi! LineNr"        .s:fg_selection   .s:bg_none        .s:fmt_none
-exe "hi! CursorLineNr"  .s:fg_yellow      .s:bg_none        .s:fmt_none
-exe "hi! MatchParen"    .s:fg_background  .s:bg_changebg    .s:fmt_none
-exe "hi! ModeMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
-exe "hi! MoreMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
-exe "hi! NonText"       .s:fg_selection   .s:bg_none        .s:fmt_none
-exe "hi! Pmenu"         .s:fg_foreground  .s:bg_selection   .s:fmt_none
-exe "hi! PmenuSel"      .s:fg_foreground  .s:bg_selection   .s:fmt_revr
-"   PmenuSbar"
-"   PmenuThumb"
-exe "hi! Question"      .s:fg_green       .s:bg_none        .s:fmt_none
-exe "hi! Search"        .s:fg_background  .s:bg_yellow      .s:fmt_none
-exe "hi! SpecialKey"    .s:fg_selection   .s:bg_none        .s:fmt_none
-exe "hi! SpellCap"      .s:fg_blue        .s:bg_darkblue    .s:fmt_undr
-exe "hi! SpellLocal"    .s:fg_aqua        .s:bg_darkcyan    .s:fmt_undr
-exe "hi! SpellBad"      .s:fg_red         .s:bg_darkred     .s:fmt_undr
-exe "hi! SpellRare"     .s:fg_purple      .s:bg_darkpurple  .s:fmt_undr
-exe "hi! StatusLine"    .s:fg_comment     .s:bg_background  .s:fmt_revr
-exe "hi! StatusLineNC"  .s:fg_window      .s:bg_comment     .s:fmt_revr
-exe "hi! TabLine"       .s:fg_foreground  .s:bg_darkcolumn  .s:fmt_revr
-"   TabLineFill"
-"   TabLineSel"
-exe "hi! Title"         .s:fg_yellow      .s:bg_none        .s:fmt_none
-exe "hi! Visual"        .s:fg_none        .s:bg_selection   .s:fmt_none
-"   VisualNos"
-exe "hi! WarningMsg"    .s:fg_red         .s:bg_none        .s:fmt_none
-" FIXME LongLineWarning to use variables instead of hardcoding
-hi LongLineWarning  guifg=NONE        guibg=#371F1C     gui=underline ctermfg=NONE        ctermbg=NONE        cterm=underline
-"   WildMenu"
 
-" Use defined custom background colour for terminal Vim.
-if !has('gui_running') && exists("g:hybrid_custom_term_colors") && g:hybrid_custom_term_colors == 1
+" Vim Highlighting: {{{
+" ----------------------------------------------------------------------------
+"   ColorColumn
+"   Conceal
+"   Cursor
+"   CursorIM
+exe "hi! CursorColumn"  .s:fg_none          .s:bg_line          .s:fmt_none
+exe "hi! CursorLine"    .s:fg_none          .s:bg_line          .s:fmt_none
+exe "hi! Directory"     .s:fg_blue          .s:bg_none          .s:fmt_none
+exe "hi! DiffAdd"       .s:fg_addfg         .s:bg_addbg         .s:fmt_none
+exe "hi! DiffChange"    .s:fg_changefg      .s:bg_changebg      .s:fmt_none
+exe "hi! DiffDelete"    .s:fg_foreground    .s:bg_delbg         .s:fmt_none
+exe "hi! DiffText"      .s:fg_blue          .s:bg_darkblue      .s:fmt_none
+exe "hi! ErrorMsg"      .s:fg_red           .s:bg_none          .s:fmt_bold
+exe "hi! VertSplit"     .s:fg_window        .s:bg_none          .s:fmt_none
+exe "hi! Folded"        .s:fg_comment       .s:bg_darkcolumn    .s:fmt_none
+exe "hi! FoldColumn"    .s:fg_none          .s:bg_darkcolumn    .s:fmt_none
+exe "hi! SignColumn"    .s:fg_none          .s:bg_darkcolumn    .s:fmt_none
+exe "hi! Incsearch"     .s:fg_comment       .s:bg_yellow        .s:fmt_none
+exe "hi! LineNr"        .s:fg_selection     .s:bg_none          .s:fmt_none
+exe "hi! CursorLineNr"  .s:fg_yellow        .s:bg_none          .s:fmt_none
+exe "hi! MatchParen"    .s:fg_orange        .s:bg_none          .s:fmt_bold
+exe "hi! ModeMsg"       .s:fg_green         .s:bg_none          .s:fmt_none
+exe "hi! MoreMsg"       .s:fg_green         .s:bg_none          .s:fmt_none
+exe "hi! NonText"       .s:fg_selection     .s:bg_none          .s:fmt_none
+"   Normal -- see later
+exe "hi! Pmenu"         .s:fg_foreground    .s:bg_selection     .s:fmt_none
+exe "hi! PmenuSel"      .s:fg_foreground    .s:bg_selection     .s:fmt_revr
+"   PmenuSbar
+"   PmenuThumb
+exe "hi! Question"      .s:fg_green         .s:bg_none          .s:fmt_none
+exe "hi! Search"        .s:fg_comment       .s:bg_yellow        .s:fmt_none
+exe "hi! SpecialKey"    .s:fg_selection     .s:bg_none          .s:fmt_none
+exe "hi! SpellBad"      .s:fg_red           .s:bg_none          .s:fmt_undr
+exe "hi! SpellCap"      .s:fg_blue          .s:bg_none          .s:fmt_undr
+exe "hi! SpellLocal"    .s:fg_aqua          .s:bg_none          .s:fmt_undr
+exe "hi! SpellRare"     .s:fg_purple        .s:bg_none          .s:fmt_undr
+exe "hi! StatusLine"    .s:fg_comment       .s:bg_background    .s:fmt_revr
+exe "hi! StatusLineNC"  .s:fg_window        .s:bg_comment       .s:fmt_revr
+exe "hi! TabLine"       .s:fg_none          .s:bg_none          .s:fmt_none
+exe "hi! TabLineFill"   .s:fg_none          .s:bg_none          .s:fmt_none
+exe "hi! TabLineSel"    .s:fg_green         .s:bg_none          .s:fmt_revb
+exe "hi! Title"         .s:fg_yellow        .s:bg_none          .s:fmt_none
+exe "hi! Visual"        .s:fg_none          .s:bg_selection     .s:fmt_none
+"   VisualNOS
+exe "hi! WarningMsg"    .s:fg_orange        .s:bg_none          .s:fmt_bold
+"   WildMenu
+
+" Use defined custom background color for terminal Vim.
+if !has('gui_running') &&  g:hybrid_use_term_colors == 1
   let s:bg_normal = s:bg_none
 else
   let s:bg_normal = s:bg_background
 endif
-exe "hi! Normal"        .s:fg_foreground  .s:bg_normal      .s:fmt_none
-
+exe "hi! Normal"        .s:fg_foreground    .s:bg_normal        .s:fmt_none
 "}}}
-" Generic Syntax Highlighting: (see :help group-name)"{{{
+
+" Syntax Highlighting: {{{
 " ----------------------------------------------------------------------------
-exe "hi! Comment"         .s:fg_comment     .s:bg_none        .s:fmt_none
+" Generic: {{{
+" -------------
+exe "hi! Comment"       .s:fg_comment       .s:bg_none          .s:fmt_none
+exe "hi! Constant"      .s:fg_red           .s:bg_none          .s:fmt_none
+exe "hi! String"        .s:fg_green         .s:bg_none          .s:fmt_none
+"   Character
+"   Number
+"   Boolean
+"   Float
+exe "hi! Identifier"    .s:fg_purple        .s:bg_none          .s:fmt_none
+exe "hi! Function"      .s:fg_yellow        .s:bg_none          .s:fmt_none
+exe "hi! Statement"     .s:fg_blue          .s:bg_none          .s:fmt_none
+"   Conditional
+"   Repeat
+"   Label
+exe "hi! Operator"      .s:fg_aqua          .s:bg_none          .s:fmt_none
+"   Keyword
+"   Exception
+exe "hi! PreProc"       .s:fg_aqua          .s:bg_none          .s:fmt_none
+"   Include
+"   Define
+"   Macro
+"   PreCondit
+exe "hi! Type"          .s:fg_orange        .s:bg_none          .s:fmt_none
+"   StorageClass
+exe "hi! Structure"     .s:fg_aqua          .s:bg_none          .s:fmt_none
+"   Typedef
+exe "hi! Special"       .s:fg_green         .s:bg_none          .s:fmt_none
+"   SpecialChar
+"   Tag
+"   Delimiter
+"   SpecialComment
+"   Debug
+exe "hi! Underlined"    .s:fg_blue          .s:bg_none          .s:fmt_none
+exe "hi! Ignore"        .s:fg_none          .s:bg_none          .s:fmt_none
+exe "hi! Error"         .s:fg_red           .s:bg_none          .s:fmt_none
+exe "hi! Todo"          .s:fg_addfg         .s:bg_none          .s:fmt_none
+" }}}
 
-exe "hi! Constant"        .s:fg_red         .s:bg_none        .s:fmt_none
-exe "hi! String"          .s:fg_green       .s:bg_none        .s:fmt_none
-"   Character"
-"   Number"
-"   Boolean"
-"   Float"
-
-exe "hi! Identifier"      .s:fg_purple      .s:bg_none        .s:fmt_none
-exe "hi! Function"        .s:fg_yellow      .s:bg_none        .s:fmt_none
-
-exe "hi! Statement"       .s:fg_blue        .s:bg_none        .s:fmt_none
-"   Conditional"
-"   Repeat"
-"   Label"
-exe "hi! Operator"        .s:fg_aqua        .s:bg_none        .s:fmt_none
-"   Keyword"
-"   Exception"
-
-exe "hi! PreProc"         .s:fg_aqua        .s:bg_none        .s:fmt_none
-"   Include"
-"   Define"
-"   Macro"
-"   PreCondit"
-
-exe "hi! Type"            .s:fg_orange      .s:bg_none        .s:fmt_none
-"   StorageClass"
-exe "hi! Structure"       .s:fg_aqua        .s:bg_none        .s:fmt_none
-"   Typedef"
-
-exe "hi! Special"         .s:fg_green       .s:bg_none        .s:fmt_none
-"   SpecialChar"
-"   Tag"
-"   Delimiter"
-"   SpecialComment"
-"   Debug"
-"
-exe "hi! Underlined"      .s:fg_blue        .s:bg_none        .s:fmt_none
-
-exe "hi! Ignore"          .s:fg_none        .s:bg_none        .s:fmt_none
-
-exe "hi! Error"           .s:fg_red         .s:bg_darkred     .s:fmt_undr
-
-exe "hi! Todo"            .s:fg_addfg       .s:bg_none        .s:fmt_none
-
-" Quickfix window highlighting
-exe "hi! qfLineNr"        .s:fg_yellow      .s:bg_none        .s:fmt_none
+" Quickfix Window: {{{
+" -------------
+exe "hi! qfLineNr"      .s:fg_yellow        .s:bg_none          .s:fmt_none
 "   qfFileName"
 "   qfLineNr"
 "   qfError"
+" }}}
 
-"}}}
-" Diff Syntax Highlighting:"{{{
-" ----------------------------------------------------------------------------
-" Diff
+" Diff Mode: {{{
+" -------------
 "   diffOldFile
 "   diffNewFile
 "   diffFile
@@ -355,6 +348,7 @@ hi! link diffAdded Special
 "   diffLine
 "   diffSubname
 "   diffComment
+" }}}
 
 "}}}
 "
