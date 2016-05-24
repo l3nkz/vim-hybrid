@@ -350,12 +350,14 @@ hi! link diffAdded Special
 "   diffComment
 " }}}
 
-"}}}
-"
-" This is needed for some reason: {{{
-
-let &background = s:style
-
+" YouCompleteMe: {{{
+exe "hi! YcmErrorSign"  .s:fg_red           .s:bg_background    .s:fmt_bold
+exe "hi! YcmWarningSign".s:fg_yellow        .s:bg_background    .s:fmt_bold
+"   YcmErrorLine
+"   YcmWarningLine
+exe "hi! YcmErrorSection".s:fg_red          .s:bg_none          .s:fmt_ital
+exe "hi! YcmWarningSection".s:fg_yellow     .s:bg_none          .s:fmt_ital
+" }}}
 " }}}
 
 " Tear Down: {{{

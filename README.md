@@ -43,6 +43,15 @@ When this setting is set to 1 (default is 1) the color scheme will use the color
 of self defined ones.
 
 
+## Plugin Support
+
+The color scheme also contains highlighting options for other VIM plugins so that they properly work together with
+the overall color scheme.
+
+Supported plugins:
+* [YouCompleteMe](https://github.com/Valloric/YouCompleteMe "Valloric/YouCompleteMe")
+
+
 ## License
 
 This plugin is licensed under MIT license.
