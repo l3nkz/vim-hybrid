@@ -49,7 +49,7 @@ The color scheme also contains highlighting options for other VIM plugins so tha
 the overall color scheme.
 
 Supported plugins:
-* [YouCompleteMe](https://github.com/Valloric/YouCompleteMe "Valloric/YouCompleteMe")
+* [YouCompleteMe](https://github.com/Valloric/YouCompleteMe "Valloric/YouCompleteMe") - highlighting for errors and warnings
 
 
 ## License
